@@ -75,6 +75,236 @@ Primary JSON Objects
 4. group_members -> group_id, user_id, date_of_join
 5. group -> group_id, group_name, members, expense
  
+
  
+Dummy Data
+-----------
+1. item ->
+{
+   "name":"item",
+   "value":{
+      "item_id":"i1234",
+      "item_name":"milk",
+      "quantity":2,
+      "unit_price":20,
+      "total_price":40
+   }
+}
+ 
+2. expense ->
+{
+   "name":"expense",
+   "value":[
+      {
+         "user_id":"u123",
+         "user_name":"sama",
+         "date":"11-05-2015",
+         "group_id":"g1234",
+         "amount":40,
+         "count":2,
+         "items":[
+            {
+               "name":"item",
+               "value":{
+                  "item_id":"i1234",
+                  "item_name":"milk",
+                  "quantity":2,
+                  "unit_price":20,
+                  "total_price":40
+               }
+            },
+            {
+               "name":"item",
+               "value":{
+                  "item_id":"i1234",
+                  "item_name":"eggs",
+                  "quantity":24,
+                  "unit_price":4,
+                  "total_price":96
+               }
+            }
+         ]
+      },
+      {
+         "user_id":"u456",
+         "user_name":"bisht",
+         "date":"10-05-2015",
+         "group_id":"g1234",
+         "amount":40,
+         "count":1,
+         "items":[
+            {
+               "item_id":"i1234",
+               "item_name":"milk",
+               "quantity":2,
+               "unit_price":20,
+               "total_price":40
+            }
+         ]
+      }
+   ]
+}
+ 
+3. user
+ 
+{
+   "name":"user",
+   "value":[
+      {
+         "user_id":"u123",
+         "user_name":"sama",
+         "password":"encrypted_password",
+         "date_of_join":"11-05-2015",
+         "phone":"8897265433",
+         "email":"99nitish@gmail.com",
+         "groups":[
+ 
+         ],
+         "expense":[
+            {
+               "user_id":"u123",
+               "user_name":"sama",
+               "date":"11-05-2015",
+               "group_id":"g123",
+               "amount":40,
+               "count":1,
+               "items":[
+                  {
+                     "name":"item",
+                     "value":{
+                        "item_id":"i1234",
+                        "item_name":"milk",
+                        "quantity":2,
+                        "unit_price":20,
+                        "total_price":40
+                     }
+                  }
+               ]
+            },
+            {
+               "user_id":"u123",
+               "user_name":"sama",
+               "date":"11-05-2015",
+               "group_id":"g456",
+               "amount":40,
+               "count":1,
+               "items":[
+                  {
+                     "name":"item",
+                     "value":{
+                        "item_id":"i1234",
+                        "item_name":"tomato",
+                        "quantity":1,
+                        "unit_price":30,
+                        "total_price":30
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+ 
+4. group_members
+ 
+{
+   "name":"group_members",
+   "value":[
+      {
+         "group_id":"g123",
+         "user_id":"u662",
+         "date_of_join":"11-05-2015"
+      },
+      {
+         "group_id":"g456",
+         "user_id":"u734",
+         "date_of_join":"11-06-2014"
+      }
+   ]
+}
+ 
+5. groups
+{
+   "name":"groups",
+   "value":[
+      {
+         "group_id":"g123",
+         "group_name":"homeSweethome",
+         "members":[
+            {
+               "group_id":"g123",
+               "user_id":"u662",
+               "date_of_join":"11-05-2015"
+            },
+            {
+               "group_id":"g123",
+               "user_id":"u714",
+               "date_of_join":"11-06-2014"
+            }
+         ],
+         "expenses":[
+            {
+               "user_id":"u123",
+               "user_name":"sama",
+               "date":"11-05-2015",
+               "group_id":"g123",
+               "amount":40,
+               "count":1,
+               "items":[
+                  {
+                     "name":"item",
+                     "value":{
+                        "item_id":"i1234",
+                        "item_name":"milk",
+                        "quantity":2,
+                        "unit_price":20,
+                        "total_price":40
+                     }
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "group_id":"g456",
+         "group_name":"lakevu",
+         "members":[
+            {
+               "group_id":"g456",
+               "user_id":"u889",
+               "date_of_join":"11-02-2015"
+            },
+            {
+               "group_id":"g456",
+               "user_id":"u990",
+               "date_of_join":"11-01-2014"
+            }
+         ],
+         "expenses":[
+            {
+               "user_id":"u123",
+               "user_name":"sama",
+               "date":"11-05-2015",
+               "group_id":"g456",
+               "amount":40,
+               "count":1,
+               "items":[
+                  {
+                     "name":"item",
+                     "value":{
+                        "item_id":"i1234",
+                        "item_name":"tomato",
+                        "quantity":1,
+                        "unit_price":30,
+                        "total_price":30
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
  
 		  
