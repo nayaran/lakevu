@@ -1,0 +1,76 @@
+Core Business Functionalities
+-----------------------------
+1. Register User
+2. Accept Group Addition Request from Admin
+3. Request Group Addition to Admin
+4. Add Expense
+5. View Expense	
+	i.   My Own Expense
+	ii.  Other Member's
+	iii. Total Expenditure
+6. Edit Expense
+7. Push Notifications
+8. Manage Group
+	i.   Create Group
+	ii.  Delete Group
+	iii. Delete User
+	iv.  Add User
+	v.   Accept User
+
+
+API
+-------------
+1. Register User (registerUser)
+	Request 	-> user_name, password, email, mobile
+	Response 	-> Confirmation (See your email for the link to verify) 
+	
+2. Accept Group Addition Request from Admin(*) (acceptGroupInvitation)
+	Request		-> In the form of notification
+	Response 	-> Confirmation
+	
+3. Request Group Addition to Admin (requestGroupAddition)
+	Request		-> group_name, group_id
+	Response 	-> Confirmation
+	
+4. Add Expense (addExpense)
+	Request		-> group_id, user_id, data[date, item, value...]
+	Response 	-> Confirmation
+
+5. View Expense (viewExpense)
+	Request		-> user_id, group_id, REQUEST_TYPE(viewExpense)
+	Response 	-> data[month, date, item , value]
+	
+6. Edit Expense (editExpense)
+	i)  A call to view_expense service
+		  Request	-> group_id, user_id, data[data, item,, value]
+		  Response 	-> Confirmation
+		  
+7. Group Management
+	i)   Create Group (createGroup)
+	 	  Request	-> group_name, users[]
+		  Response 	-> Confirmation
+	ii)  Manage Group (manageGroup)
+			a. Delete Group
+				Request 	-> REQUEST_TYPE(delete_group), user, group_name 
+				Response 	-> Confirmation
+			b. Add User
+				Request 	-> REQUEST_TYPE(add_user), user, group_name 
+				Response 	-> Confirmation			
+			c. Delete User
+				Request 	-> REQUEST_TYPE(delete_user), user, group_name 
+				Response 	-> Confirmation
+			d. Accept User(*)
+				Request		-> In the form of notification
+				Response 	-> Confirmation	
+		
+Database Layer
+---------------
+A document oriented noSQL DB
+
+Primary JSON Objects 
+--------------------
+
+1. expense -> user, date, group, amount, item
+2. user -> id, name, password, phone, email, group, expense
+3. group -> name, id, members, expense
+		  
