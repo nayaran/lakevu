@@ -67,10 +67,14 @@ Database Layer
 ---------------
 A document oriented noSQL DB
 
-Primary JSON Objects 
---------------------
-
-1. expense -> user, date, group, amount, item
-2. user -> id, name, password, phone, email, group, expense
-3. group -> name, id, members, expense
+Primary JSON Objects
+----------------------
+1. item -> item_id, item_name, quantity, unit_price, total_price
+2. expense -> user_id, user_name, date, group_id, amount, count, items
+3. user -> user_id, user_name, password, date_of_join, phone, email, groups, expense
+4. group_members -> group_id, user_id, date_of_join
+5. group -> group_id, group_name, members, expense
+ 
+ 
+ 
 		  
