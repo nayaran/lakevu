@@ -24,10 +24,8 @@ def logger():
       from os import path
 
       # get the current directory
-      logPath = path.dirname(path.dirname(path.abspath(__file__)))
-      logPath = os.getcwd()
+      logPath = path.dirname(path.abspath(__file__))
 
-      print logPath
       fileName = 'log_file'
 
       # configure log formatter
