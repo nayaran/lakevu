@@ -30,13 +30,13 @@ def getConnection():
 
 def getAllCollections():
       """
-      Get all the connections from the DB
+      Get all the collections from the DB
       """
       #mainLogger.info(":: inside getAllCollections :: ")
       db = getConnection()
       result = db.collection_names()
       #mainLogger.info(":: exiting getAllCollections :: ")
-      mainLogger.info("returning - %d connections", len(result))
+      mainLogger.info("returning - %d collections", len(result))
       return result
 
 
