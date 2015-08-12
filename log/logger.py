@@ -1,24 +1,11 @@
-#import logging
-#
-#logging.basicConfig(filename='/apps/opt/myapp.log', format='%(asctime)s %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 import logging
 #print 'inside logger.py'
 
 def logger():
-	#logging.basicConfig(filename='temp.log', format='%(asctime)s-  %(levelname)s:%(message)s', level=logging.DEBUG)
       """
-      date_format='%d-%m-%Y %I:%M:%S %p'
-      frmt = '%(asctime)s [%(filename)s] [%(funcName)s] [%(levelname)s] [%(lineno)d] %(message)s'
-      file_name = 'temp.log'
-      logging_level = logging.DEBUG
-      logging.basicConfig(format=frmt,
-                          datefmt=date_format,
-                          level=logging_level)
-      logger = logging.getLogger()
-      #logger.addHandler(logging.StreamHandler())
+      Defines the logger
+      """
 
-      return logger
-      """
       #print 'initializing logger....'
       import os
       from os import path
@@ -37,10 +24,12 @@ def logger():
       fileHandler = logging.FileHandler("{0}/{1}.log".format(logPath, fileName))
       fileHandler.setFormatter(file_logFormatter)
       fileHandler.setLevel(logging.DEBUG)
+
       # configure stream handler
       consoleHandler = logging.StreamHandler()
       consoleHandler.setFormatter(console_logFormatter)
       consoleHandler.setLevel(logging.DEBUG)
+
       # get the logger instance
       logger = logging.getLogger("LakvuLogger")
 
