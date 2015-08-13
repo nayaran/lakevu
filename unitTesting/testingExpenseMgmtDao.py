@@ -13,14 +13,14 @@ import log
 from dao import ExpenseMgmtDao as dao
 
 # initialize the logger
-logger = logging.getLogger('LakvuLogger.test')
+testLogger = logging.getLogger('LakvuLogger.test')
 
 def testGetAllCollections():
       """
       Basic testing for getAllCollections
       """
       # test the module
-      logger.info('testing testGetAllCollections!')
+      testLogger.info('testing testGetAllCollections!')
       pprint(dao.getAllCollections())
 
 def testAddNewUser():
@@ -52,16 +52,16 @@ def testGetAllUsers():
       """
       Basic testing for getAllUsers
       """
+      testLogger.info('testing testGetAllUsers!')
       collection = "users"
       users = dao.getAllUsers(collection)
-
-      logger.info('testing testGetAllCollections!')
-      pprint(users)
+      testLogger.info('type(users)- %s', type(users))
+      testLogger.info('received-\n%s', pformat(users))
 
 if __name__ == '__main__':
-      logger.info('_________testing ExpenseMgmgDao!_________')
-      testGetAllCollections()
-      testGetAllUsers()
-      testAddNewUser()
+      testLogger.info('_________testing ExpenseMgmgDao!_________')
+      #testGetAllCollections()
+      #testGetAllUsers()
+      #testAddNewUser()
       testGetAllUsers()
 
