@@ -13,30 +13,30 @@ import log
 import logging
 
 # get the logger instance
-mainLogger = logging.getLogger('LakvuLogger.ExpenseMgmtDAO')
+daoLogger = logging.getLogger('LakvuLogger.dao')
 
 
 def getConnection():
       """
       Get the connection from the DB
       """
-      #mainLogger.info(":: inside getConnection :: ")
+      #daoLogger.info(":: inside getConnection :: ")
       client = MongoClient()
       #db = client['user']
       #db = client['expenseManagement']
       db = client['testingDB']
-      #mainLogger.info(":: returning Connection :: ")
+      #daoLogger.info(":: returning Connection :: ")
       return db
 
 def getAllCollections():
       """
       Get all the collections from the DB
       """
-      #mainLogger.info(":: inside getAllCollections :: ")
+      #daoLogger.info(":: inside getAllCollections :: ")
       db = getConnection()
       result = db.collection_names()
-      #mainLogger.info(":: exiting getAllCollections :: ")
-      mainLogger.info("returning - %d collections", len(result))
+      #daoLogger.info(":: exiting getAllCollections :: ")
+      daoLogger.info("returning - %d collections", len(result))
       return result
 
 def addNewUser(userDoc, collection):
@@ -44,8 +44,8 @@ def addNewUser(userDoc, collection):
       Adds a new user to the DB
       """
       db = getConnection()
-      mainLogger.info("inserting in collection- %s", collection)
-      mainLogger.info("inserting document- \n%s", pformat(userDoc))
+      daoLogger.info("inserting in collection- %s", collection)
+      daoLogger.info("inserting document- \n%s", pformat(userDoc))
       result = db[collection].insert_one(userDoc)
       return result.inserted_id
 
@@ -55,11 +55,10 @@ def getAllUsers(collection):
       """
       db = getConnection()
       result = db[collection].find()
-      mainLogger.info("fetching useres from collection- %s", collection)
-      mainLogger.info("total count of users fetched- %d", result.count())
+      daoLogger.info("fetching users from collection- %s", collection)
+      daoLogger.info("total count of users fetched- %d", result.count())
 
       users = []
-
       for user in result:
             users.append(user)
 
