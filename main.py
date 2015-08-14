@@ -35,7 +35,24 @@ def addUser():
       """
       Adds a new user
       """
-      pass
+      new_user = request.json
+      mainLogger.info('handling request for getUsers')
+      mainLogger.info('received-\n%s', pformat(new_user))
+      collection = "users"
+
+      inserted_id = dao.addNewUser(new_user, collection)
+      message = ""
+
+      if inserted_id:
+            mainLogger.info("Successfully addded the user with id- %s", inserted_id)
+            message = "Successfully added! :)"
+      else:
+            mainLogger.info("Something went wrong :(")
+            message = "Something went wrong :("
+
+      return message
+
+
 
 @app.route('/lakevu/getUsers', method='GET')
 def getUsers():
@@ -47,6 +64,7 @@ def getUsers():
       mainLogger.info('received: collection - %s', collection)
 
       result = dao.getAllUsers(collection)
+
       mainLogger.info('fetching data from backend...')
       mainLogger.info('type(result)- %s', type(result))
       mainLogger.info('returning-\n%s', result)
